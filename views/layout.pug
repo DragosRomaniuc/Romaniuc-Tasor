@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    title= title
+    meta(name='viewport', content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no')
+    meta(charset='utf-8')
+    meta(name='author', content='Romaniuc Dragos')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    //- Favicon
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/images/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#9115d7">
+    //- Bootstrap 4
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+    script(src='https://code.jquery.com/jquery-3.4.1.min.js', integrity='sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')
+    //- SW resgister
+    script(src="/sw-register.js")
+    //- Custom CSS3
+    link(rel='stylesheet', href=baseUrl+'stylesheets/style.css')
+
+    block head
+  body.text-monospace
+    div.container.d-flex.flex-column
+      div.row.justify-content-center.content
+        div.col-sm-8
+          block content
+
+    //script.
+    //  $(document).ready(() => {
+    //    // Register service worker if the browser supports.
+    //    if ('serviceWorker' in navigator) {
+    //      navigator.serviceWorker.register('#{baseUrl}sw.js')
+    //        .then(registration => {
+    //        console.log('SW registered: ', registration);
+    //        })
+    //        .catch(error => console.error(error));
+    //    }
+    //  });
+

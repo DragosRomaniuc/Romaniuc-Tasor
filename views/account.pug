@@ -1,0 +1,53 @@
+extends layout
+
+block content
+
+  ul.list-group
+    li.font-weight-bold.h3.list-group-item Profile
+
+    each val, index in account
+      li.list-group-item.text-right
+        span.float-left.text-capitalize
+          strong #{index}
+        |  #{val}
+    a.btn.btn-success.btn-lg.btn-block.mt-2(href=baseUrl + 'categories', role='button') Categories
+    //a.btn.btn-success.btn-lg.btn-block.mt-2(href=baseUrl, role='button') Shared Categories
+    button#logOut.btn.btn-primary.btn-lg.btn-block(type='button') Log Out
+    button#remove.btn.btn-danger.btn-lg.btn-block(type='button') Remove Account
+
+  script.
+    //- Log out handler
+    $('#logOut').click(function() {
+      var self = this
+      self.innerHTML="<span class='spinner-grow spinner-grow-sm' role='status' aria-hidden='true'></span>";
+
+      $.post('#{baseUrl}logout').done(handleRedirect).fail(function() {
+        alert('Error: can not log out. Please try again later.')
+        self.innerText="Log Out";
+      })
+    })
+
+    //- Remove handler
+    $('#remove').click(function() {
+      var self = this
+      self.innerHTML="<span class='spinner-grow spinner-grow-sm' role='status' aria-hidden='true'></span>";
+
+      $.ajax({
+        url:'#{baseUrl}account/delete',
+        type:'DELETE',
+        success: handleRedirect,
+        error: function() {
+          alert('Error: can not delete. Please try again later.')
+          self.innerText="Remove Account";
+        }
+      })
+    })
+
+    //- Helper
+    function handleRedirect() {
+      location.replace('#{baseUrl}login')
+    }
+
+
+
+

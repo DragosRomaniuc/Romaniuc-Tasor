@@ -1,0 +1,52 @@
+form {
+  outline: 0;
+  margin-top: 5%;
+  border: 3px solid #3b3b3b;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #28a745;
+  background-color: #28a745;
+}
+
+input[type='text'] {
+  outline: 0;
+  width: 55%;
+  border: none;
+  font-size: 18px;
+  font-weight: normal;
+  padding-left: 10px;
+}
+
+.add {
+  outline: 0;
+  width: 34%;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  padding: 0;
+  text-align: left;
+  list-style: none;
+}
+
+hr {
+  border-bottom: 0;
+  margin: 15px 0;
+}
+
+input[type='checkbox'] {
+  width: 30px;
+}
+
+.remove {
+  float: right;
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+}

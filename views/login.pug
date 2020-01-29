@@ -1,0 +1,37 @@
+extends layout
+
+block content
+
+  form.form-signin(method='POST' action='')
+    //- Logo
+    img.d-block.mx-auto.mb-4(src=baseUrl+'images/tasor3.png' alt='' width='300' height='350')
+
+    //- Title
+    h1.h3.mb-3.font-weight-normal.text-center Please Sign In
+
+    //- Validation feedback
+    if errors
+      ul
+        for error in errors
+          li!= error.msg
+
+    //- Email
+    label.sr-only(for='email') Email address
+    input#email.form-control(type='email' name='email' placeholder='Email' required='true' autofocus='' value=(undefined===account ? '' : account.email))
+
+    //- Password
+    label.sr-only(for='password') Password
+    input#password.form-control(type='password' name='password' placeholder='Password' required='true' value=(undefined===account ? '' : account.password))
+
+    //- Sign Up link
+    p
+      | Don't have an account?
+      a(href=baseUrl+'signup')  Sign Up
+
+    //- Reset Password link
+    p
+      | Forget your password?
+      a(href=baseUrl+'reset-password')  Reset Password
+
+    //- Submit
+    button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign In

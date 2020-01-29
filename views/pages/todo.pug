@@ -1,0 +1,183 @@
+extends ../subLayout
+
+append head
+  link(rel='stylesheet', href=baseUrl+'stylesheets/index.css')
+
+block subContent
+  //- Header
+  include ../includes/title.pug
+  hr
+  include ../includes/subDescriptions.pug
+  hr
+  p.textbox(class=checked ? 'completed' : '' , data-id=_id)= todo
+
+  if publicTodo
+    p.badge.badge-info= 'PUBLIC TASK, you can share the URL with your friends!'
+  else
+    p.badge.badge-danger= 'PRIVATE TASK, only logged in users can view this!'
+  if !checked
+    button#toggle.btn.btn-primary.btn-lg.btn-block(type='button') Mark #{buttonTitle} as done
+  else
+    button#toggle.btn.btn-primary.btn-lg.btn-block(type='button') Mark #{buttonTitle} as task in progress
+  if !publicTodo
+    button#markPublic.btn.btn-primary.btn-lg.btn-block.private.markPublic(type='button', ) Mark as public
+  else
+    button#markPublic.btn.btn-primary.btn-lg.btn-block.public.markPublic(type='button') Mark as private
+  button#remove.btn.btn-danger.btn-lg.btn-block(type='button') Remove #{buttonTitle}
+  button#goBack.btn.btn-warning.btn-lg.btn-block(type='button') Go Back
+  script.
+    //- Go Back handler
+    $('#toggle').click(function() {
+      var self = this;
+      var text = $('.textbox');
+      var textButton = $('#toggle');
+      var _id = text.attr('data-id');
+      var checked = !text.hasClass('completed');
+
+      var buttonText = self.innerText;
+      self.innerHTML="<span class='spinner-grow spinner-grow-sm' role='status' aria-hidden='true'></span>";
+
+      $.ajax({
+        url: getUrlWithEndpoint('edit'),
+        type:'PUT',
+        data: JSON.stringify({ _id, item: { checked } }),
+        contentType: 'application/json',
+        dataType: 'json',
+        success: function() {
+          toggleItem();
+          if(checked) {
+            self.innerText='Mark as task in progress';
+          } else {
+            self.innerText='Mark as done';
+          }
+
+        },
+        error: function({ responseJSON }) {
+          // If error type is array, this is a validation error so alert error.
+          // Else, this is an database error.
+          responseJSON.errors &&
+          responseJSON.errors.length &&
+          responseJSON.errors.length > 0
+            ? responseJSON.errors.forEach(function({ msg }) {
+                alert(msg);
+              })
+            : alert('Sorry, there were a problem. Please try again later.');
+          console.error(responseJSON);
+          self.innerText=buttonText;
+        }
+      })
+    })
+
+
+    //- Mark as public/private
+    $('#markPublic').click(function () {
+      var self = this;
+      var text = $('.textbox');
+      var textButton = $('#markPublic');
+      var _id = text.attr('data-id');
+      var checked = !text.hasClass('completed');
+      var public = !textButton.hasClass('public');
+      var element = document.getElementById("markPublic");
+
+      var buttonText = self.innerText;
+      self.innerHTML = "<span class='spinner-grow spinner-grow-sm' role='status' aria-hidden='true'></span>";
+
+      $.ajax({
+        url: getUrlWithEndpoint('edit'),
+        type: 'PUT',
+        data: JSON.stringify({_id, item: {public}}),
+        contentType: 'application/json',
+        dataType: 'json',
+        success: function () {
+
+
+          if (public) {
+            self.innerText = 'Mark as private';
+
+
+          } else {
+            self.innerText = 'Mark as public';
+
+          }
+          location.reload();
+        },
+        error: function ({responseJSON}) {
+          // If error type is array, this is a validation error so alert error.
+          // Else, this is an database error.
+          responseJSON.errors &&
+          responseJSON.errors.length &&
+          responseJSON.errors.length > 0
+                  ? responseJSON.errors.forEach(function ({msg}) {
+                    alert(msg);
+                  })
+                  : alert('Sorry, there were a problem. Please try again later.');
+          console.error(responseJSON);
+          self.innerText = buttonText;
+        }
+      })
+    })
+
+    //- Remove handler
+    $('#remove').click(function() {
+      var self = this;
+      var _id = location.pathname
+          .split('todos/')
+          .slice(1);
+      var buttonText = self.innerText;
+      self.innerHTML="<span class='spinner-grow spinner-grow-sm' role='status' aria-hidden='true'></span>";
+
+      $.ajax({
+        url: getUrlWithEndpoint('delete'),
+        type:'DELETE',
+        data: JSON.stringify({ _id }),
+        contentType: 'application/json',
+        dataType: 'json',
+        success: function() {
+          handleRedirect();
+          self.innerText=buttonText;
+        },
+        error: function({ responseJSON }) {
+          // If error type is array, this is a validation error so alert error.
+          // Else, this is an database error.
+          responseJSON.errors &&
+          responseJSON.errors.length &&
+          responseJSON.errors.length > 0
+            ? responseJSON.errors.forEach(function({ msg }) {
+                alert(msg);
+              })
+            : alert('Sorry, there were a problem. Please try again later.');
+          console.error(responseJSON);
+          self.innerText=buttonText;
+        }
+      })
+    })
+
+    //- Go Back handler
+    $('#goBack').click(function() {
+      history.back()
+    })
+
+    //- Helper
+    function handleRedirect() {
+      location.replace(
+        location.pathname
+          .split('todos/')
+          .slice(0, 1)
+          .join('') + 'todos'
+      );
+    }
+    function toggleItem() {
+      $('.textbox').toggleClass('completed');
+    }
+    function toggleMarkPrivate() {
+
+      $('.markPublic').removeClass('public');
+      $('.markPublic').addClass('private');
+    }
+    function toggleMarkPublic() {
+      $('.markPublic').removeClass('private');
+      $('.markPublic').addClass('public');
+    }
+    function getUrlWithEndpoint(endPoint) {
+      return location.href + '/' + endPoint;
+    }

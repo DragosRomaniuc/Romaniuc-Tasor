@@ -1,0 +1,23 @@
+extends layout
+
+append head
+  link(rel='stylesheet', href=baseUrl+'stylesheets/index.css')
+  script(src=baseUrl+"javascripts/todos.js")
+
+
+block content
+  button#goBack.btn.btn-outline-info.mb-3 &lt; Back
+  //- Header
+  include ./includes/title.pug
+  hr
+  h3.text-left= title
+  if subTitle
+    include ./includes/subTitles.pug
+    include ./includes/subDescriptions.pug
+  hr
+  //- List
+  include ./includes/list.pug
+
+  script.
+    $('#goBack').click(function() { window.history.back()})
+

@@ -1,0 +1,25 @@
+.row.text-black-50.font-italic
+  .col
+    if categoryInfo
+      p Sharing with:
+  .col.text-right
+    if categoryInfo
+      if sharingWith
+        p= sharingWith
+      else
+        a.text-info(href=baseUrl + 'friend' + '?categoryId=' + categoryInfo.categoryId + '&categoryOwner=' + categoryInfo.categoryOwner + '&categoryTitle=' + categoryInfo.categoryTitle, role='button')
+          p Share with someone
+      if sharingWith
+        a.text-info(href=baseUrl + 'friend' + '?categoryId=' + categoryInfo.categoryId + '&categoryOwner=' + categoryInfo.categoryOwner + '&categoryTitle=' + categoryInfo.categoryTitle, role='button')
+            p Add more users to this category
+
+.row.text-black-50.font-italic
+  .col
+    p Created At:
+  .col.text-right
+    p= createdAtFormatted
+.row.text-black-50.font-italic
+  .col
+    p Last Edited At:
+  .col.text-right
+    p= lastEditFormatted

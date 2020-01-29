@@ -1,0 +1,42 @@
+//- list
+ul#list-items
+  // tasks
+  each item in list
+    if categoryInfo
+      li(data-id=item._id)
+        .d-flex.align-items-center
+          .custom-control.custom-checkbox
+            input.checkbox.custom-control-input(id=item._id, type='checkbox', checked=item.checked)
+            label.custom-control-label(for=item._id)
+          a.textbox.text-info.flex-grow-1.mr-3(href=redirectUrl + '/' + item._id, role='button')
+            p.mb-0= item.title
+          span.remove.badge.badge-danger &times
+        hr
+    //  categorii
+    if !friendList && !categoryInfo
+      li(data-id=item._id)
+        .d-flex.align-items-center
+          .custom-control.custom-checkbox
+            input.checkbox.custom-control-input(id=item._id, type='checkbox', checked=item.checked)
+            label.custom-control-label(for=item._id)
+          a.textbox.text-info.flex-grow-1.mr-3(href=redirectUrl+'/'+item._id, role='button')
+            p.mb-0= item.title
+          span.remove.badge.badge-danger &times
+        hr
+    if friendList
+      li(data-id=item._id)
+        .d-flex.align-items-center
+          span.textbox.text-info.flex-grow-1.mr-3= item.userName
+          p
+            a.badge.flex-grow-1.mr-3.badge-success.flex-grow-1.mr-3(href='/friend/addCategory?categoryId=' + addInfo.categoryId + '&toAssign=' + item._id + '&ownerId=' + ownerId, role='button') assign
+        hr
+
+
+
+
+
+
+//- New form
+if !friendList
+  form.add-items.d-flex.align-items-stretch.border-info
+    input#new-item.form-control.flex-grow-1.h-auto(type='text', placeholder=placeHolder, name=name)
