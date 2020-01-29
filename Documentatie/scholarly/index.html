@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Scholarly HTML</title>
+    <link rel="stylesheet" href="css/scholarly.min.css">
+    <script src="js/scholarly.min.js"></script>
+  </head>
+  <body prefix="schema: http://schema.org">
+    <header>
+      <div class="banner">
+        <img src="scholarly-html.svg" width="227" height="50" alt="Scholarly HTML logo">
+        <div class="status">Tasor Progressive Web App</div>
+      </div>
+      <h1>Tasor - Smart Task Organiser</h1>
+    </header>
+    <div role="contentinfo">
+      <dl>
+        <dt>Authors</dt>
+        <dd>
+          Romaniuc Dragos
+        </dd>
+      </dl>
+    </div>
+    <section typeof="sa:Abstract" id="abstract" role="doc-abstract">
+      <h2>Abstract</h2>
+      <p>
+  
+Sa se conceapa un produs Web de tip PWA (Progressive Web Application) capabil sa gestioneze timpul de efectuare a unor activitati (tasks). 
+Utilizatorii autentificati vor propune (tipuri de) activitati (task-uri), 
+asignandu-le apoi unor persoane care trebuie sa le execute intr-o perioada de timp specificata. 
+Printr-un URL anonim, informatiile despre un task ce trebuie efectuat pot fi expuse public. 
+Fiecare activitate va avea asociate informatii privind demararea acesteia (interval orar, zona geografica, doar utilizatori calificati intr-un domeniu specific etc.) 
+si finalizarea (i.e. dovada realizarii cu (in)succes a task-ului -- minimal, un URL indicand o resursa edificatoare: 
+fotografie, video, depozit de cod-sursa, orice altceva). Istoricul activitatilor + statistici vor fi disponibile tuturor celor implicati. 
+Diversele notificari vor fi disponibile direct in browser si/sau trimise prin posta electronica. 
+      </p>
+    </section>
+    <section id="introduction" role="doc-introduction">
+      <!-- review? -->
+      <h2>Introduction</h2>
+      <h1>THE WORLD GOES
+        MOBILE</h1>
+      <h2>THE AMOUNT OF MOBILE USERS KEEPS RAISING STEADILY</h2>
+      <img src="mobile1.png" alt="mobile1" width="100%">
+      <img src="mobile2.png" alt="mobile2" width="100%">
+      <h2>…BUT CONVERSION RATE IS PRETTY LOW</h2>
+      <img src="mobile3.png" alt="mobile3" width="100%">
+      <section id="Root">
+        <h2>WHY ISN’T PEOPLE BUYING
+          STUFF ON THEIR PHONES?</h2>
+        <h2>THE AVERAGE WEB APP EXPERIENCE IS POOR FOR MOBILE</h2>
+        <pre>
+▸ Most websites are optimised for Desktop
+▸ …even those who claim to be “mobile first”
+▸ Mobile users are less patient and websites are slower on
+smartphones
+▸ 53% of visits are likely to be abandoned if pages take
+longer than 3 seconds to load
+        </pre>
+
+        <h2>NOT EVERY MOBILE EXPERIENCE IS POOR</h2>
+        <img src="mobile4.png" alt="mobile3" width="100%">
+      </section>
+
+      <section id="AwesomeApp">
+        <!-- review? -->
+        <h2>WHAT MAKES NATIVE
+          APPS SO AWESOME?</h2>
+        <pre>
+          <b>Native Apps</b>
+▸ Most of bullsh.. content is removed
+▸ Super fast: loading time of a few seconds
+▸ Reachable from home screen
+▸ Easy to use: focus on what’s completely necessary
+▸ Offline accesible
+▸ Push notifications
+▸ Good UX practices by default
+        </pre>
+      <img src="https://previews.dropbox.com/p/thumb/AAtj203rtYVMMticehfGW4fX6g_pZSKYDDeH_RmHqVBKvFG94qup8WPm58wG7A3YrPc1pqRFrmt2KMNZ8EA-30w7AajrX1bpQK2RR_TreRILpMczZCxdCQfr-L4iKShqboOdoqHrhF9OfcPM20CKyEwG5twL7uhrIMPMZgQ2F7zCygTD3x9cXjJC3H9Y0EK4ZXu2eHWYJLch5eBkkCYqHZ3gwDIMWnqSS7YPOA6mTbtAt8XD1vzqajEqUEy2C6QHSHnhMuvEu_eUDlvy-so00hlAMJm0ehCeiHv3eP2bzy4cbl4bPyKm6dEDei31G2IDjJWdPliAhaTXLU6xe6KQTwCIhl4Eh7w97BIDGFmfPYB0Ftkt7zByVHZ1W6EOzSrrfXZ7Cj95AhF6XLEMFWw8g_jQTYRfpG_dZ9967FYmUSZucvXEtTEzu-Phprq2eK9ZNic/p.png?fv_content=true&size_mode=5" width="70%">
+      </section>
+
+      <section id="AwesomeApp2">
+        <!-- review? -->
+        <h2>NATIVE APPS ALSO SUCK
+          …A LITTLE
+          …SOMETIMES</h2>
+
+          <h2>THE PROBLEM WITH NATIVE APPS</h2>
+          <pre>
+  ▸ Poorly accessible coding languages
+     ▸ Java?, Android SDK, Swift, C
+  ▸ More than one codebase
+  ▸ Necessary to deal with AppStore and PlayStore
+  ▸ Take a lot of time to build
+  ▸ Crazy expensive �
+          </pre>
+
+          <h2>
+            NATIVE APP'S DISCOVERABILITY
+          </h2>
+        
+      <img src="https://previews.dropbox.com/p/thumb/AAst1hBrDR5XX2ov4nqU0q5vUPmQUHG-crK2OGzA7c5IGv-p4ILPt55-5jgh8OwoFexxIeNzF9l5Xgfp1TtYHDBSWFLeurti3CkVb2u40FXL0v9wZFijMhE5nx5__ZcdRkChqGBiL1HXiULTFAh5Cf0oNi3qdn9A0QPWoCyVz-QxEO3a-kciTh83dm0aRLoNfOnz94J8GaNnCwz-lezrhsIO2ESjMTb2suHH72UO_eJdeH_G6gzX4RXdogFwCEK_jwIE7mUEkW53a7w33GIq2QGke6ubxrIxVYkL4lZChs_0d3rd11jnh6gzwIDM1WpJ4mNLy80bIS08mCq7xETOA13FU2iJIvGJvSjVU80yj3pbRYisMrFO_EgnB7VbUnvFcq49Vagit1gJDUXmHyKY3-t4Nb2iAFLJgIRywghWZ0qUcDx0J0MNGTnjg6crgC4VCIo/p.png?fv_content=true&size_mode=5" width="90%">
+      </section>
+
+      <section id="AwesomeApp3">
+        <!-- review? -->
+        <h2>WHAT ARE PROGRESSIVE WEB APPS</h2>
+        <h3><q>PROGRESSIVE WEB APPS ARE WEB
+          APPLICATIONS THAT ARE REGULAR WEB PAGES
+          OR WEBSITES </q> - WIKIPEDIA</h3>
+
+          <img src="https://previews.dropbox.com/p/thumb/AAv-C5pyuXpKeFV4qYk0_2xCfvAO5hTf4fn5pWolu-e2pyNndNJnCnvtrn0sLahMo5l4kAF8diFJimSgZf6nRJwCibbsNX8_-1VM7bSOqzXj3PIPUcuyXwhnMFd0O090p2263A8do6DdSCT89rCLh1HBgtB5Nf3Q0v6BBKZARRMHfMhTTxWToKbQ8qCDXFvPiveutCJRDB1oG89BEyGm1JdLW3f6KcMR863qptGxbZeQdIWZcP2wTMz86gP8Zr0spkfkiDDvC_K0dLOeWwOzlCnK5r6V7EcQEPAQEkbzNZw9eMYgOytX_l7xwMSsM8mWhhFd-leQWr7r0mNkLjHLQXjditpqEo6-HkMLsrs28ICPidF4FmV_dbU0kh5Hpvq_GULATPe1ztVBiTQbF7EXHtNZxLlOih7ockOSNOYbCwG2w8EpVbdSce5p0aJsd7mRHwk/p.png?fv_content=true&size_mode=5" width="70%">
+          <h3><p>Thanks... I guess</p></h3>
+
+          <p><q>PROGRESSIVE WEB APPS ARE WEB
+            APPLICATIONS THAT ARE REGULAR WEB PAGES
+            OR WEBSITES
+            BUT CAN APPEAR TO THE USER LIKE TRADITIONAL
+            APPLICATIONS OR NATIVE MOBILE APPLICATIONS</q> - WIKIPEDIA</p>
+
+            <p><q><strike>PROGRESSIVE WEB APPS ARE WEB
+              APPLICATIONS THAT ARE </strike><b>REGULAR WEB PAGES
+                OR WEBSITES BUT CAN APPEAR TO THE USER LIKE </b>
+              <strike>TRADITIONAL
+                APPLICATIONS OR </strike><b>NATIVE MOBILE APPLICATIONS</b></q> - WIKIPEDIA</p>
+         </section>
+
+
+         <section id="AwesomeApp4">
+          <!-- review? -->
+          <h2>WHY PWA?</h2>
+          <h3>REMEMBER WHY NATIVE APPS ARE AWESOME?</h3>
+          <pre>
+▸ Most of bullsh.. content is removed ✅
+▸ Super fast: loading time of a few seconds ✅
+▸ Reachable from home screen ✅
+▸ Easy to use: focus on what’s completely necessary ✅
+▸ Offline accesible ✅
+▸ Push notifications ✅
+▸ Good UX practices by default 
+          </pre>
+          
+          <h3>BUT ALSO ALL THE PROS FROM WEB</h3>
+
+          <pre>
+▸ Easy peasy coding languages
+▸ HTML, CSS, JS
+▸ One code base for all platforms! 
+▸ Not necessary to deal with AppStore and PlayStore
+▸ Fast prototyping, release and modifications
+▸ Super cheap (or at least more accessible)
+          </pre>
+
+          <h3>
+            PROGRESSIVE WEB APP’S DISCOVERABILITY
+          </h3>
+          <img src="https://previews.dropbox.com/p/thumb/AAsg2in-hRWxurC0TGz-SiNe2nV_1SLgp4iPYVaqyRoHOt03VB21T_9ph7LbVWAj4mpsWvvQ-dybDpkoZU0ZUy4x_TLfGeq7ll_w_6FOeJ32_UpAMuIQxVm94C29vdbPCp9TjS9zIdFf3QJnDXG-7rskXUD2ZEhkUjwuKbuz90Y5yB0bHOuybQqcYeUU3FnAvbjxbzIEV42e7GcNXGKPlciE62d3FCP6lJqgvZvP_iqDeX8clt0xVrqRNDReTCMebNoG7asmcNUjrhAzWusU2PHkmYHwTT3OmHoqrqZVBIGKqhVkmPgf2SQL9w3brfxORj7DWUC2br8XMKC0VgFu7Ja-kdXfucYtadjJZoWcMDbHRG6-maLemDgyVqCNccM9_BjdM44RS1rX5yDnTBdg7pwuLg3VRz5O1wD2dSDNxvupyA5OmDYOok3WibnRR2m2g3Y/p.png?fv_content=true&size_mode=5" width="100%">
+          <h2>EVERY MILLISECOND COUNTS</h2>
+          <img src="https://previews.dropbox.com/p/thumb/AAumTetuzSVL9xdBQq3C4FFm0u4ax2aI3JyNkfklWxtKUCRzFrKg4udPuaPQps9aEsorqZtDrbPmdB9c2ggF3XHTVSVtXt8jmq9_nJ8XozjVXa4hW6JJZe7o8P-mKajDOO3Zs8ybJre8Y7ulTHPHHQjWv8C6QmnPbgd77MarU4UAZdBqM-LzzmEOOdDvVxF5CEB-aJ_-2108f6UVGXeUe0dA5Dx0bRKcjQS79Px38yrX2m16AzpKwSg8Ft_3cxyRV_DFdhHtiyucrlrLa7Hms3euzcOmrh1WNeJi2_Rc7TMNaDQdKpu7Yhaq5MU7gPCl4WEAahWWXvaRpderNEJb_oczIBvlZr3o_10eBoa7G6p5Ih3-c8HocESwWp5N4wqI4tNotjKUW2z-BQr6uPbfJF7q5CivBHbvXYzofxH6WLjoE4Ady7vsrDOpOsSIfNuDAQ0/p.png?fv_content=true&size_mode=5" width="80%">
+
+          <h3>
+            IT’S NOT ONLY ABOUT SPEED
+          </h3>
+
+          <pre>
+▸ Most websites are full of noise
+▸ Users are not considered during conception and
+development
+▸ A lot of best practices feel counter intuitive
+▸ The people making decisions rarely go into the world of
+the user
+▸ TL;DR: Most websites are not user centered
+          </pre>
+           </section>
+
+           <section id="AwesomeApp5">
+            <!-- review? -->
+            <h2>SUCCESS STORIES</h2>
+            <img src="https://previews.dropbox.com/p/thumb/AAvtZz76au3xl5qjFgulV1P9C4z8_3o7rK8GzTjRBlKb0zHxivdMEE65OYUzBB-vX9SkWqwT2zVltyJd7c6vI1bl504SrTXe2TThzHPaGMkH7h6CVaxUjZhGceQ-E0ARdwuBaq8v2XlEMyfJ4qYyLAixgwNQYiHhY5zCSQSzAhg1HnjNrWpR4VQWPkm-jzBzZkyG4bd5QFryynbk_GJBzsNFGDYR5kOp0zWtscAk5COsUKzL0bO_tAgOatqFb-9utIKLXaYYZNbA_QvYF8XlSk_lXo1M6j1oaDu79hMFZgSIi7C74j3qoevL8kNwlCeSG9yr1icx2L83WTjU6QylCQru35bgfjJQAbEZQlU10jAqcZezL5UQrU4qujGlqLczIzRwSa7Rg1PZln79S6rNOmipMHtA2SkBGJ9pmdT5BSRV8M0peP_GH3LqHa-8kTZcz2M/p.png?fv_content=true&size_mode=5" width="70%">
+            <h3>
+              ALIEXPRESS
+            </h3>
+            
+            <pre>
+104%
+  increases conversion rate for new
+  users; 82% increase in iOS
+  conversion rate
+X2 
+  more pages visited per session
+  er user across all browsers
+74% 
+  increase in time spent per
+  session across all browsers
+            </pre>
+            <img src="https://previews.dropbox.com/p/thumb/AAuzTp1toD4zWEE3HLXNL9UPBEpS7I60aMHXE_La0GTg5d8rt7wewtdRghFi_mwHUGWvrp4DI2zAVe1jl3Mn0LzmPdne1PXQsNuow1v8f3_kuUJfilYdVZlj8a4Q5Gz10vuXYhYy5PLoKBWXlCBRdVgOwPX9pMqjxXKmzhVubovUpJB9QN4TTCoDbWs9AyXJUFGUgY-V8IiG21UlADyCDzFuVRcwwM3vw5DQDQrbUq4YPoSX434zvOoY98YdOP6L013HL9BGU27cwwcuIUwDi7T0jv14kdA3UHKIfilweqPFk2NmCzHroPmnmZBHTcAUm273sGCgfWGkIqUQJv0RWChSmibvmAapt-obTjyswEfj-TmDpD82O2oyA7zMCUl7EjJ1KfjdCw6l1yIru90xB_GbXkP-bn34srfS4wfQR2A5jfKVWtSmz4MrmIOz2dxyBCg/p.png?fv_content=true&size_mode=5">
+
+            <h3>TWITTER LITE AKA. TWITTER WITHOUT THE BULLS...</h3>
+            <pre>
+65% increase in pages per session
+75% increase in Tweets sent
+20% decrease in bounce rate
+            </pre>
+            <img src="https://previews.dropbox.com/p/thumb/AAu02e0aRnSELcVqmeX0Vl9JzMOgXmAfOOHAfXA9zuybwB-2bgw2RJffCvCD9xfQFAu2gSvxmtWc8tUjkDL5T_e5H9Lrl_1wpR3gthgKQmi--Co2AsA7FDgTsM_QVZH0eHw3X0YVzxSS4sl3B9ZPwsLN4oJPhogb6j8lGLfSm5giJE8j899dNsIJVkx0Jlt9tZZPpAwdZsvwpZd9DqtCWa40REkKDzPAHT63gaGMZ4rEjY3KJxQaxUZ1W1EbTXXKOYlhErExKHKZNTxM7gTRRNxxUJb0LOwTw8a8kWqjRJ5ZcdB_7gs8il4U31iTvGzdlHqy0epB6vgOjzXm_hY59aBbQDWhqotBUMfTQK1KshR44i9LIGuewuOsP8416gfBhrEFeZe2Kx-LaEQMhHDNv9SQpuq2LXmIvZssZlCAdxEJjpCGe3dFolhSJT5Cq7YiELs/p.png?fv_content=true&size_mode=5">
+            <h3>AND THE LIST GOES ON AND ON</h3>
+
+            <img src="https://previews.dropbox.com/p/thumb/AAtPBqGU4XAWuC0kYmG-jo6KR6eb8DX8hLNq42n8aEj-UB6BM6e4Ttuuapu5GWaPtrdSxOUl-QtqkPxHzLIK6904WcXAWYGS6ohheI4SGn60Pw6Z6bD8IpfA6NlMUKqSDUpMvBIAe5oUAsTAWuvRIHvLTh943aVKfNJu0vXZDn0ksV803eaEuO55--5JUKpLmUrQ_5q_QVXp_ouwCoP6ThhBJZnIlWOVV3N9U8MptHbsHsL3sUsC5tAQp4MIXQ5tXTNlEfwI1s3OdsK1SZsDI0DAq62k3ADKvBdQQ2ZTfvrOLlvKfxsteVeDZlV6aewaift7jlRHA7L3juIVtSrtnSuTRL4zXecHm_XWnk0iYPb7fQbnoGTgJHuppworqfXPY2k4cQOKFHEd85nCCT0yJK7wTxZypye_38RC8XpigylXHjqr6oSAG-fQxCuUJklkEN0/p.png?fv_content=true&size_mode=5" width="100%"> 
+             </section>
+
+             <section id="Mvc0">
+               <h2>Model-View-Controller</h2>
+                <b>If you have been to a bar, then MVC ain’t that hard.</b>
+                Model-view-controller (MVC) frameworks are a crucial part of building modern web applications. Walk into a room of web developers, and you will likely be bombarded with mentions of Ruby on Rails, Angular or Django.
+
+More generally, MVC logic can be used to describe almost any web development process that uses a language like PHP, Ruby, Python or JavaScript.
+<p>
+  <b>What is the MVC Pattern?</b>
+  <pre>
+    Model: Structures your data in a reliable form and prepares it based on controller’s instructions
+    View: Displays data to user in easy-to-understand format, based on the user’s actions
+    Controller: Takes in user commands, sends commands to the model for data updates, sends instructions to view to update interface.
+  </pre>
+  <img src="https://cdn-media-1.freecodecamp.org/images/1*4SxbmCrI5YVp1Uyj1Jstsg.png" width="100%">
+
+  <b>How it works:</b>
+  <pre>
+      The user makes a request along a route, let’s say /home.
+      The controller receives this request and gives a specific set of orders that are related to that route. These instructions could either be for the view to update or serve a certain page, or for the model to perform specific logic. Let’s assume this request has some logic associated with it.
+      The model carries out the logic, pulls from a database and sends back a consistent response based on the controller’s instructions.
+      The controller then passes this data to the view to update the user interface.
+  </pre>
+  Whenever a request comes in, it first must go to the controller before it can be converted into instructions for the view or model
+
+</p>
+             </section>
+
+             <section id="technologiesUsed">
+                <h2> Technologies used</h2>
+                <section id="nodejs">
+                  <h2>NodeJS </h2>
+                  Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
+                   Node.js is an open source, cross-platform runtime environment for developing server-side and networking applications.
+                  <section id="Express">
+                    <h2> Express Framework </h2>
+                    Express is a minimal and flexible Node.js web application framework that provides a robust set of features to develop web and mobile applications. It facilitates the rapid development of Node based Web applications.
+                  </section>
+                </section>
+
+                <section id="MongoDB">
+                  <h2>MongoDB Database </h2>
+                  MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schema. 
+                  <section id="mongoose">
+                    <h2>Mongoose ODM </h2>
+                    Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node. js. It manages relationships between data, provides schema validation, and is used to translate between objects in code and the representation of those objects in MongoDB
+                  </section>
+                </section>
+
+                <section id="pug">
+                  <h2>Pug Template Engine</h2>
+                  Pug is a template engine for Node.js. A template engine allows us to inject data and then produce HTML. In short: At run time, Pug (and other template engines) replace variables in our file with actual values, and then send the resulting HTML string to the client
+                </section>
+                
+             </section>
+     
+    </section>
+
+
+
+    
+    <section id="structure1">
+      <!-- review? -->
+      <h2>Progressive Web Apps</h2>
+     
+
+
+      <section id="Pwa">
+        <!-- review? -->
+        <h3>What is a service worker?</h3>
+        <p>
+          A service worker is a type of web worker. It's essentially a JavaScript file that runs separately from the main browser thread, 
+          intercepting network requests, caching or retrieving resources from the cache, and delivering push messages.
+          Because workers run separately from the main thread, service workers are independent of the application they are associated with. 
+          This has several consequences:
+          <pre>
+            - Because the service worker is not blocking (it's designed to be fully asynchronous) synchronous XHR and localStorage cannot be used in a service worker.
+            - The service worker can receive push messages from a server when the app is not active. This lets your app show push notifications to the user, even when it is not open in the browser.
+            - The service worker can't access the DOM directly. To communicate with the page, the service worker uses the postMessage() method to send data and a "message" event listener to receive data.
+          </pre>
+          <p>
+            Things to note about Service Worker:
+            <pre>
+            - A service worker is a programmable network proxy that lets you control how network requests from your page are handled.
+            - Service workers only run over HTTPS. Because service workers can intercept network requests and modify responses, "man-in-the-middle" attacks could be very bad.
+            - The service worker becomes idle when not in use and restarts when it's next needed. You cannot rely on a global state persisting between events. If there is information that you need to persist and reuse across restarts, you can use IndexedDB databases.
+            - Service workers make extensive use of promises, so if you're new to promises, then you should stop reading this and check out Promises, an introduction.
+            </pre>
+          </p>
+        </p> 
+        <section id="Pwa.1">
+          <h3>What can service workers do?</h3>
+          Service workers enable applications to control network requests, cache those requests to improve performance, and provide offline access to cached content.
+          Service workers depend on two APIs to make an app work offline: Fetch (a standard way to retrieve content from the network) and Cache (a persistent content storage for application data). This cache is persistent and independent from the browser cache or network status.
+
+          <pre>
+            - Improve performance of your application/site
+            - Caching resources will make content load faster under most network conditions. See Caching files with the service worker and The Offline Cookbook for a full list of caching strategies.
+            - Make your app "offline-first"
+            - Using the Fetch API inside a service worker, we can intercept network requests and then modify the response with content other than the requested resource. We can use this technique to serve resources from the cache when the user is offline. See Caching files with the service worker to get hands-on experience with this technique.
+            - Act as the base for advanced features
+            - Notifications API: A way to display and interact with notifications using the operating system's native notification system.
+            - Push API: An API that enables your app to subscribe to a push service and receive push messages. Push messages are delivered to a service worker, which can use the information in the message to update the local state or display a notification to the user. Because service workers run independently of the main app, they can receive and display notifications even when the browser is not running.
+            - Background Sync API: Lets you defer actions until the user has stable connectivity. This is useful to ensure that whatever the user wants to send is actually sent. This API also allows servers to push periodic updates to the app so the app can update when it's next online
+            - Channel Messaging API: Lets web workers and service workers communicate with each other and with the host application. Examples of this API include new content notification and updates that require user interaction.
+          </pre>
+
+        </section>
+
+        <section id="Pwa.2">
+          <h3>Service worker lifecycle</h3>
+          A service worker goes through three steps in its lifecycle:
+          <pre>
+            - Registration
+            - Installation
+            - Activation
+</pre>
+
+Registration and scope
+To install a service worker, you need to register it in your main JavaScript code. Registration tells the browser where your service worker is located, and to start installing it in the background. Let's look at an example:
+  - main.js
+  <pre>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+      .then(function(registration) {
+        console.log('Registration successful, scope is:', registration.scope);
+      })
+      .catch(function(error) {
+        console.log('Service worker registration failed, error:', error);
+      });
+    }
+</pre>
+
+
+This code starts by checking for browser support by examining navigator.serviceWorker. The service worker is then registered with navigator.serviceWorker.register, which returns a promise that resolves when the service worker has been successfully registered. The scope of the service worker is then logged with registration.scope. If the service worker is already installed, navigator.serviceWorker.register returns the registration object of the currently active service worker.
+
+The scope of the service worker determines which files the service worker controls, in other words, from which path the service worker will intercept requests. The default scope is the location of the service worker file, and extends to all directories below. So if service-worker.js is located in the root directory, the service worker will control requests from all files at this domain.
+
+You can also set an arbitrary scope by passing in an additional parameter when registering. For example:
+<pre>
+  -main.js
+      navigator.serviceWorker.register('/service-worker.js', {
+        scope: '/app/'
+      });
+</pre>
+</p>
+
+        </section>
+      
+      </section>
+
+
+      <section id="workbox">
+        <h2>Workbox</h2>
+        Why Workbox?
+When previewing the launched app, from the above section, you will notice that it shows This is a PWA template for Monaca App and that it is already 
+PWA-compliant. What makes it PWA-compliant is that the app already equips the manifest.jsonand service-worker.js.
+Since the app is already PWA-compliant, you might question why we need Workbox or how to use it?
+Workbox lets you trade complexity for flexibility.
+Well, I’m glad you asked. Workbox is a flexible well-defined PWA library that wraps the boilerplate code with methods that developers 
+can use to implement service worker functionality. Out-of-box, it is production-ready with features such as precaching,
+ runtime caching, caching strategies, request routing, etc. As you may know, implementing the service worker is the heart of a PWA. 
+ If implemented correctly, the web application could be faster and reliable; but if implemented incorrectly, it can potentially lead to a disaster. 
+ As is it said, service workers come with great power, but with great power comes with a cost and complexity.
+ <section id="workboxvsnonworkbox">
+    <h2>Non-Workbox vs Workbox</h2>
+    To explain the differences between non-Workbox and Workbox, we are going to compare by coding. 
+    Let’s say we want to implement a caching strategy in which the latest resources is not vital to the current application state. 
+    Simply put, if there’s a cached version available which will be loaded 
+    first while it fetches the latest version and saves it to cache for next time usage (see the picture below for more detail).
+    <img src="https://previews.dropbox.com/p/thumb/AAswnDAewu3YaEtErSziwe0P2qRlFjI12dDG_rhZLdSBTURL2IKmlc37JrlJ-TnY6A2J2Pnpfemg92ZUg8bYI_zSWoXme0mttb2Zg--oDOzcFIYkvnaL3YM4n2-3txdMNuHHhTHfKbcRRZ7W1V6vK1-sspyBAo5sp9MbQj3yNjfCnDt7WBz9BfrZ1GWL0S8czA21iW5-MmUraCYIR0TflHIKW2LIlg3lb7qoxXnqJZj1ucCbhjTOANSRkm5Wi9bTo5AbCvzfnRZYgIaFNPqqBnVgHuv259SVKfRflJSTyEyILpLdRv6HmASGo2f3PfwM3K8dDJsXrBIIZW5A-VAYNbBA3I8SB_LdMk9sd8p6fuggv2mZ4HbEq75rjvRmrYa8nkiWPAy613fJ5JYZ0rJd31OzYRfaOmZRulyx6UnEozbjtld7A4S3YSyn8fRu6pAL7U8/p.png?fv_content=true&size_mode=5" width="100%">
+    Without Workbox, the following code below is an example of how to implement the illustration above in the service worker.
+    <pre>
+      self.addEventListener('fetch', event => {
+        event.respondWith(
+          caches.put('my-awesome-cache').then(cache => {
+            return catch.match(event.request).then(cacheResponse => {
+              const fetchPromise = fetch(event.request).then(networkResponse => {
+                catch.put(event.request, networkResponse.clone());
+                return networkResponse;
+              });
+              return cacheResponse || fetchPromise;
+            });
+          });
+        );
+      });
+    </pre>
+
+    Now, with workbox…
+It turns out that the caching behavior that we want from Workbox is called the StaleWhileRevalidate strategy. To implement the same functionality as our illustration, the few lines below can archive this.
+
+<pre>
+  workboxSW.strategies.staleWhileRevalidate({
+    cacheName: 'my-awesome-cache',
+    cacheExpiration: {
+      maxAgeInSeconds: 60 * 30 //the cache will be expired in 30m
+    }
+  });
+</pre>
+I have also added one more option which set the cache expiration to 30 minutes so that the content stored in the cache is not too old. Imagine if we had to implement this without Workbox, it would definitely require more effort.
+
+
+  </section>
+        <section id="workbox1">
+          <h2>
+            Overview
+          </h2>
+          Workbox is the successor to sw-precache and sw-toolbox. It is a collection of libraries and tools used for generating a service worker,
+           precaching, routing, and runtime-caching. Workbox also includes modules for easily integrating background sync and Google Analytics into your service worker.
+        </section>
+
+        <section id="workbox2">
+            <h2> Write a basic service worker using workbox-sw </h2>
+             - sw.js
+             <pre>
+              importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js');
+
+              if (workbox) {
+                console.log(`Yay! Workbox is loaded 🎉`);
+              
+                workbox.precaching.precacheAndRoute([]);
+              
+              } else {
+                console.log(`Boo! Workbox didn't load 😬`);
+              }
+             </pre>
+
+             Explanation
+              In this code, the importScripts call imports the workbox-sw.js library from a Content Delivery Network (CDN). Once the library is loaded, the workbox object gives our service worker access to all the Workbox modules.
+
+              The precacheAndRoute method of the precaching module takes a precache "manifest" (a list of file URLs with "revision hashes") to cache on service worker installation. It also sets up a cache-first strategy for the specified resources, serving them from the cache by default.
+
+              Currently, the array is empty, so no files will be cached.
+
+              Rather than adding files to the list manually, workbox-build can generate the manifest for us. Using a tool like workbox-build has multiple advantages:
+
+              The tool can be integrated into our build process. Adding workbox-build to our build process eliminates the need for manual updates to the 
+              precache manifest each time that we update the apps files.
+              workbox-build automatically adds "revision hashes" to the files in the manifest entries. 
+              The revision hashes enable Workbox to intelligently track when files have been modified or are outdated, 
+              and automatically keep caches up to date with the latest file versions. Workbox can also remove cached files that are no longer in the manifest, 
+              keeping the amount of data stored on a user's device to a minimum. You'll see what workbox-build and the file revision hashes look like in the next section.
+
+              <pre>
+                importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js');
+
+workbox.skipWaiting();
+workbox.clientsClaim();
+
+// cache name
+workbox.core.setCacheNameDetails({
+    prefix: 'My-awesome-cache',
+    precache: 'precache',
+    runtime: 'runtime',
+  });
+  
+// runtime cache
+// 1. stylesheet
+workbox.routing.registerRoute(
+    new RegExp('\.css$'),
+    workbox.strategies.cacheFirst({
+        cacheName: 'My-awesome-cache-Stylesheets',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxAgeSeconds: 60 * 60 * 24 * 7, // cache for one week
+                maxEntries: 20, // only cache 20 request
+                purgeOnQuotaError: true
+            })
+        ]
+    })
+);
+// 2. images
+workbox.routing.registerRoute(
+    new RegExp('\.(png|svg|jpg|jpeg)$'),
+    workbox.strategies.cacheFirst({
+        cacheName: 'My-awesome-cache-Images',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxAgeSeconds: 60 * 60 * 24 * 7,
+                maxEntries: 50,
+                purgeOnQuotaError: true
+            })
+        ]
+    })
+);
+
+// 3. cache news articles result
+workbox.routing.registerRoute(
+    new RegExp('https://newsapi.org/v2/top-headlines'),
+    workbox.strategies.staleWhileRevalidate({
+        cacheName: 'My-awesome-cache-news-headline',
+        cacheExpiration: {
+            maxAgeSeconds: 60 * 30 //cache the news content for 30mn
+        }
+    })
+);
+  
+workbox.precaching.precacheAndRoute([]);
+              </pre>
+              <h3>
+                We have just configured three runtime caches:
+              </h3>
+              <pre>
+                <b>We have just configured three runtime caches:
+              Style sheet: any files (requests) ending with .css is cached for one week.
+              Image: any files (requests) ending with png|svg|jpg|jpeg is cached for one week.
+              News API: any requests containing https://newsapi.org/v2/top-headlines is cached for 30 minutes.
+              Once the response is cached, we can view the app without the network connection (offline mode).
+              The last line workbox.precaching.precacheAndRoute([]) will be replaced by the list of precache assets configured in workbox.conf.js .
+              In this example, for caching, we are using the:
+              CacheFirst strategy to cache runtime images and style sheets
+              StaleWhileRevalidate strategy to cache runtime News API response.
+              There are many options for caching strategies that Workbox provides out-of-the-box. You can research the other options more here to find out what fits your needs.
+              </pre>
+        </section>
+
+
+    </section>
+
+
+
+      
+    </section>
+
+    <!-- STRUCTURE -->
+
+    <section id="structure">
+      <!-- review? -->
+      <h2>Structure</h2>
+     
+
+
+      <section id="FolderStructure">
+        <!-- review? -->
+        <h3>Folder Structure</h3>
+        <pre>
+          <h3>Bin</h3>
+            - www.js
+          <h3>controllers</h3>
+          /account 
+          /category 
+          /friend 
+          /subscribe 
+          /todos
+          <h3>middleware</h3>
+          /accountDeleteHandler
+          /allAccountsHandler
+          /assignCategoryHandler
+          /authenticationOnAccount
+          /authenticationOnCategory
+          /authenticationOnFriendsList
+          /authenticationOnTodo
+          /authenticationOnTodoDetail
+          /categoryHandlers
+          /handlePreRemoveAccount
+          /handlePreRemoveCategoryFromAccount
+          /loginHandler
+          /logOutHandler
+          /preUpdateModel
+          /removeTodoByAccountRef
+          /resetPasswordEmailHandler
+          /resetPasswordHandler
+          /setHashPasswordAndSalt
+          /signUpHandler
+          /todoHandlers
+          /validateUnAuthentication
+          /validationHandler
+          /withAuthentication
+          /withFindByEmail
+          /withValidationErrorHandler
+          - index.js
+          <h3>models</h3>
+          /account
+          /category
+          /todo
+          - index.js
+          <h3>public</h3>
+          /images
+          /javascripts
+          /stylesheets
+          manifest.json
+          site.webmanifest
+          sw.js
+          sw-register.js
+          <h3>routes</h3>
+          /account
+          /categories
+          /friend 
+          /session
+          /subscribe 
+          index.js 
+          <h3>src</h3>
+          sw.js
+          <h3>utility</h3>
+          /capitalizeFirstLetter
+          /checkPasswordsMatch
+          /getUrl
+          /security
+          /sendEmail
+          /timeFormatters
+          index.js
+          <h3>views</h3>
+          /includes
+          /pages
+          - account.pug
+          - error.pug 
+          - feedback.pug 
+          - index.pug 
+          - layout.pug 
+          - login.pug 
+          - passwordResetEmailForm.pug 
+          - passwordResetFrom.pug 
+          - signup.pug 
+          - subLayout.pug
+
+        </pre>
+      </section>
+      
+
+      <section id="DatabaseStructure">
+        <!-- review? -->
+        <h3>Database Structure</h3>
+        <pre>
+          <h3>Account</h3>
+          <pre>
+            email: { type: String, required: true }
+            userName: { type: String, required: true, max: 100 }
+            password: { type: String, required: true, max: 100 }
+            validated: { type: Boolean, default: false }
+            categories: [{ type: Schema.Types.ObjectId, ref: 'Category' }]
+            salt: { type: String, max: 100 }
+            createdAt: { type: Date, default: Date.now }
+            lastLogin: { type: Date, default: Date.now }
+          </pre>
+
+          <h3>Category</h3>
+          <pre>
+            title: { type: String, required: true }
+            accounts: [{ type: Schema.Types.ObjectId, ref: 'Account', required: true }]
+            todoList: [{ type: Schema.Types.ObjectId, ref: 'Todo' }]
+            checked: { type: Boolean, default: false }
+            createdAt: { type: Date, default: Date.now }
+            lastEdit: { type: Date, default: Date.now }
+          </pre>
+
+          <h3>Todo</h3>
+          <pre>
+            title: { type: String, required: true }
+            category: { type: Schema.Types.ObjectId, ref: 'Category', required: true }
+            checked: { type: Boolean, default: false }
+            createdAt: { type: Date, default: Date.now }
+            lastEdit: { type: Date, default: Date.now }
+            public: { type: Boolean, default: false}
+          </pre>
+
+        </pre>
+      </section>
+
+      
+    </section>
+
+
+    <!-- SEMANTICS OVERLAY -->
+    
+  </body>
+</html>
