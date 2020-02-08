@@ -1,6 +1,4 @@
 const fs = require('fs');
-const key = fs.readFileSync('./key.pem');
-const cert = fs.readFileSync('./cert.pem');
 var app = require('../app');
 var debug = require('debug')('express-todo-app:server');
 var http = require('http');

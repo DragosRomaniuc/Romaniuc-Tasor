@@ -6,14 +6,7 @@
   },
   "private": true,
   "scripts": {
-    "start": "npm run workbox && nodemon bin/www.js",
-    "dev": "nodemon bin/www.js",
-    "workbox": "workbox injectManifest",
-    "test": "nyc --reporter=html npm run test:unit --recursive --exit",
-    "test:unit": "mocha --require ./test/app.js './{,!(node_modules)/**}/*.test.js'",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/coveralls/bin/coveralls",
-    "codeclimate": "codeclimate-test-reporter < lcov.info",
-    "coverage": "npm run coveralls && npm run codeclimate"
+    "dev": "nodemon bin/www.js"
   },
   "dependencies": {
     "async": "^3.0.1",
@@ -25,6 +18,7 @@
     "email-templates": "^6.0.0",
     "express": "~4.16.1",
     "express-session": "^1.16.2",
+    "express-swagger-generator": "^1.1.17",
     "express-validator": "^5.3.1",
     "helmet": "^3.18.0",
     "http-errors": "~1.6.3",
@@ -46,7 +40,6 @@
     "nodemon": "^1.19.1",
     "nyc": "^14.1.1",
     "sinon": "^7.3.2",
-    "supertest": "^4.0.2",
-    "workbox-cli": "^4.3.1"
+    "supertest": "^4.0.2"
   }
 }
