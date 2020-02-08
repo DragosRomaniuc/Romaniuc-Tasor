@@ -67,19 +67,19 @@ self.addEventListener('fetch', async function(event) {
                             let pieces = urlToFetchAndCache.split('/');
                             switch (pieces[pieces.length - 2]) {
                                 case 'categories':
-                                    await fetch('http://localhost:3000/categories', {
+                                    await fetch('http://' + pieces[2] +'/categories', {
                                         method: 'GET',
                                         mode: 'cors'
                                     }).then(networkResponse2 => {
-                                        cache.put('http://localhost:3000/categories', networkResponse2.clone())
+                                        cache.put('http://' + pieces[2] +'/categories', networkResponse2.clone())
                                     });
                                     break;
                                 case 'todos':
-                                    await fetch('http://localhost:3000/categories/' + pieces[pieces.length - 3] + '/todos', {
+                                    await fetch('http://' + pieces[2] +'/categories' + pieces[pieces.length - 3] + '/todos', {
                                         method: 'GET',
                                         mode: 'cors'
                                     }).then(networkResponse2 => {
-                                        cache.put('http://localhost:3000/categories/' + pieces[pieces.length - 3] + '/todos', networkResponse2.clone())
+                                        cache.put('http://' + pieces[2] +'/categories' + pieces[pieces.length - 3] + '/todos', networkResponse2.clone())
                                     });
                                     break;
                             }
