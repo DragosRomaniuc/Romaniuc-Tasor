@@ -17,7 +17,7 @@
     "directory-structure-json": "^1.0.0",
     "dotenv": "^8.0.0",
     "email-templates": "^6.0.0",
-    "express": "~4.16.1",
+    "express": "~4.17.3",
     "express-session": "^1.16.2",
     "express-swagger-generator": "^1.1.17",
     "express-validator": "^5.3.1",
